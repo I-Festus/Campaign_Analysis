@@ -55,7 +55,7 @@ To begin the analysis, a PostgreSQL database named campaign was created. The fol
 CREATE TABLE campaigndata ( Campaign_ID INT, Company VARCHAR (100), Campaign_Type VARCHAR(50), Target_Audience VARCHAR (100), Duration VARCHAR (50), Channel_Used VARCHAR (50), Conversion_Rate NUMERIC, Acquisition_Cost MONEY, ROI NUMERIC, Location VARCHAR (100), Date VARCHAR (50), Clicks INT, Impressions INT, Engagement_Score NUMERIC, Customer_Segment VARCHAR (100));
 
 ## ANALYSIS & INSIGHTS
-- ## Calculate Total Impressions for Each Campaign
+## Calculate Total Impressions for Each Campaign
 ### *Query:*
 SELECT
     Campaign_ID,
@@ -72,7 +72,7 @@ The images above shows the codes and few  results of the query. Here is the brea
 - The campaigns are sorted in descending order based on the number of impressions.
 - The campaigns with the highest impressions indicate strong visibility but may require further analysis on their engagement and conversion rates.
 
-- ## Identify the Campaign with the Highest  ROI
+## Identify the Campaign with the Highest  ROI
 ### *Query:*
 SELECT
     Campaign_ID,
@@ -90,7 +90,7 @@ The images above shows the codes. Here is the breakdown of the syntax:
 - This helps identify the most profitable campaign based on return on investment.
 - Understanding the strategies used in this campaign can help optimize future marketing efforts.
 
-- ## Find the Top 3 Locations with the Most  Impressions
+## Find the Top 3 Locations with the Most  Impressions
 ### *Query:*
 SELECT
     Location,
@@ -108,7 +108,7 @@ The images above shows the codes. Here is the breakdown of the syntax:
 - Retrieves the top 3 locations with the highest impressions.
 - These locations indicate regions where campaigns have the most visibility, helping marketers allocate resources effectively.
 
-- ## Calculate Average Engagement Score by Target Audience
+## Calculate Average Engagement Score by Target Audience
 ### *Query:*
 SELECT
     Target_Audience,
@@ -125,7 +125,7 @@ The images above shows the codes. Here is the breakdown of the syntax:
 - Helps identify which audience segments interact the most with marketing campaigns.
 - High engagement scores indicate effective messaging and campaign relevance.
 
-- ## Calculate the Overall CTR (Click-Through Rate)
+## Calculate the Overall CTR (Click-Through Rate)
 ### *Query:*
 SELECT 
     (SUM(Clicks) * 100.0 / NULLIF(SUM(Impression), 0)) AS OverallCTR
@@ -139,7 +139,7 @@ The images above shows the codes. Here is the breakdown of the syntax:
 - CTR measures the effectiveness of ads in driving user interaction.
 - A high CTR indicates that campaigns are compelling enough to generate clicks.
 
-- ## Find the Most Cost-Effective Campaign
+## Find the Most Cost-Effective Campaign
 ### *Query:*
 SELECT 
     Campaign_ID,
@@ -157,7 +157,7 @@ The images above shows the codes. Here is the breakdown of the syntax:
 - The most cost-effective campaign (lowest cost per conversion) is ranked first.
 - Helps businesses optimize budget allocation by focusing on cost-efficient campaigns.
 
-- ## Find Campaigns with CTR Above a  Threshold
+## Find Campaigns with CTR Above a  Threshold
 ### *Query:*
 SELECT
     Campaign_ID,
@@ -169,7 +169,7 @@ WHERE (Clicks * 100.0 / NULLIF(Impression, 0)) > 5;
 ### *Output:*
 ![HNG Task 3!](https://github.com/user-attachments/assets/b0d9d9fe-10fb-462e-8255-bbfd794a2937)
 
-- ## Find Campaigns with CTR Above a  Threshold
+## Find Campaigns with CTR Above a  Threshold
 ### *Query:*
 SELECT
     Channel_Used,
