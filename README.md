@@ -72,7 +72,7 @@ The images above shows the codes and few  results of the query. Here is the brea
 - The campaigns are sorted in descending order based on the number of impressions.
 - The campaigns with the highest impressions indicate strong visibility but may require further analysis on their engagement and conversion rates.
 
-- Identify the Campaign with the Highest  ROI
+- ## Identify the Campaign with the Highest  ROI
 ### *Query:*
 SELECT
     Campaign_ID,
@@ -85,17 +85,28 @@ LIMIT 1;
 ### *Output:*
 ![HNG Task 3 (2)](https://github.com/user-attachments/assets/b28d2072-0940-4695-b629-1a43ea085467)
 
-
 The images above shows the codes. Here is the breakdown of the syntax:
 - The query sorts all campaigns by ROI in descending order and retrieves the top campaign.
 - This helps identify the most profitable campaign based on return on investment.
 - Understanding the strategies used in this campaign can help optimize future marketing efforts.
 
+- ## Find the Top 3 Locations with the Most  Impressions
+### *Query:*
+SELECT
+    Location,
+    SUM(Impression) AS TotalImpression
+FROM 'campaigndata'
+GROUP BY Location
+ORDER BY TotalImpressions DESC;
+LIMIT 3;
 
+### *Output:*
+![HNG Task 3 (4)](https://github.com/user-attachments/assets/0fd32053-7b18-4dbf-aef3-f5e1760ea58d)
 
-
-
-
+The images above shows the codes. Here is the breakdown of the syntax:
+- Groups the dataset by Location and sums impressions per location.
+- Retrieves the top 3 locations with the highest impressions.
+- These locations indicate regions where campaigns have the most visibility, helping marketers allocate resources effectively.
 
 
 
