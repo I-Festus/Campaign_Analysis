@@ -55,7 +55,7 @@ To begin the analysis, a PostgreSQL database named campaign was created. The fol
 CREATE TABLE campaigndata ( Campaign_ID INT, Company VARCHAR (100), Campaign_Type VARCHAR(50), Target_Audience VARCHAR (100), Duration VARCHAR (50), Channel_Used VARCHAR (50), Conversion_Rate NUMERIC, Acquisition_Cost MONEY, ROI NUMERIC, Location VARCHAR (100), Date VARCHAR (50), Clicks INT, Impressions INT, Engagement_Score NUMERIC, Customer_Segment VARCHAR (100));
 
 ## ANALYSIS & INSIGHTS
-- Calculate Total Impressions for Each Campaign
+- ## Calculate Total Impressions for Each Campaign
 ### *Query:*
 SELECT
     Campaign_ID,
