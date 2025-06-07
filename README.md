@@ -108,5 +108,108 @@ The images above shows the codes. Here is the breakdown of the syntax:
 - Retrieves the top 3 locations with the highest impressions.
 - These locations indicate regions where campaigns have the most visibility, helping marketers allocate resources effectively.
 
+- ## Calculate Average Engagement Score by Target Audience
+### *Query:*
+SELECT
+    Target_Audience,
+    AVG(Engagement_Score) AS avgengagementscore
+FROM 'campaigndata'
+GROUP BY Target_Audience
+ORDER BY avgengagementscore DESC;
 
+### *Output:*
+![HNG Task 3](https://github.com/user-attachments/assets/b0be7b1b-968b-4e09-9d9e-93db6c9b7448)
 
+The images above shows the codes. Here is the breakdown of the syntax:
+- Calculates the average engagement score for each target audience group.
+- Helps identify which audience segments interact the most with marketing campaigns.
+- High engagement scores indicate effective messaging and campaign relevance.
+
+- ## Calculate the Overall CTR (Click-Through Rate)
+### *Query:*
+SELECT 
+    (SUM(Clicks) * 100.0 / NULLIF(SUM(Impression), 0)) AS OverallCTR
+FROM 'campaigndata'
+
+### *Output:*
+![HNG Task 3](https://github.com/user-attachments/assets/101e429c-cc42-4894-88c7-b4f238cdd128)
+
+The images above shows the codes. Here is the breakdown of the syntax:
+- Computes the overall CTR by dividing total clicks by total impressions.
+- CTR measures the effectiveness of ads in driving user interaction.
+- A high CTR indicates that campaigns are compelling enough to generate clicks.
+
+- ## Find the Most Cost-Effective Campaign
+### *Query:*
+SELECT 
+    Campaign_ID,
+    Company,
+    (Acquisition_Cost::NUMERIC / Conversion_Rate) AS costperconversion
+FROM 'campaigndata'
+ORDER BY costperconversion ASC
+LIMIT 1;
+
+### *Output:*
+![HNG Task 3](https://github.com/user-attachments/assets/5411a897-a547-4473-8845-2b8a8b0e5272)
+
+The images above shows the codes. Here is the breakdown of the syntax:
+- Calculates cost per conversion by dividing acquisition cost by total conversions.
+- The most cost-effective campaign (lowest cost per conversion) is ranked first.
+- Helps businesses optimize budget allocation by focusing on cost-efficient campaigns.
+
+- ## Find Campaigns with CTR Above a  Threshold
+### *Query:*
+SELECT
+    Campaign_ID,
+    Company,
+    (Clicks * 100.0 / NULLIF(Impression, 0)) AS CTR
+FROM 'campaigndata'
+WHERE (Clicks * 100.0 / NULLIF(Impression, 0)) > 5;
+
+### *Output:*
+![HNG Task 3!](https://github.com/user-attachments/assets/b0d9d9fe-10fb-462e-8255-bbfd794a2937)
+
+- ## Find Campaigns with CTR Above a  Threshold
+### *Query:*
+SELECT
+    Channel_Used,
+    SUM(Conversion_Rate) AS TotalConversion
+FROM 'campaigndata'
+GROUP BY Channel_Used
+ORDER BY TotalConversion DESC;
+
+### *Output:*
+The images above shows the codes. Here is the breakdown of the syntax:
+- Groups data by marketing channel and sums total conversions.
+- Ranks channels based on conversion performance.
+- Helps allocate marketing budgets to the most effective channels.
+
+## CONCLUSION
+The analysis provided key insights into campaign performance, audience engagement, and cost-effectiveness. Key takeaways include:
+- The campaign with the highest ROI should be studied for successful strategies.
+- Locations with the most impressions can be targeted for future expansion.
+- High-CTR campaigns and cost-effective strategies should guide future marketing decisions.
+- Certain marketing channels perform better in driving conversions, making them ideal for budget allocation.
+
+## RECOMMENDATIONS
+1. Scale High-ROI Campaign
+- Invest more in campaigns with the highest ROI to maximize profitability.
+- Analyze the strategies used in these campaigns and replicate them in lower-performing ones.
+2. Optimize Budget Allocation
+- Reduce spending on campaigns with high acquisition costs and low conversions.
+- Focus on cost-effective campaigns that generate better returns.
+3. Target High-Engagement Audiences
+- Prioritize audience segments with the highest engagement scores.
+- Tailor messaging and content to resonate with these audiences.
+4. Expand in High-Impression Locations
+- Increase marketing efforts in locations that generate the most impressions.
+- Assess whether these locations also convert well or need further optimization.
+5. Improve Low-CTR Campaigns
+- Identify campaigns with low click-through rates and adjust ad creatives, messaging, or targeting.
+- A/B test different strategies to enhance audience engagement.
+6. Invest in High-Converting Channels
+- Reallocate budgets to channels that drive the most conversions.
+- Reduce investment in underperforming channels with low conversion rates.
+7. Ensure Data Integrity and Accuracy
+- Investigate why multiple campaigns have identical impressions (e.g., 10,000 for all).
+- Check for potential data anomalies or system errors affecting reporting accuracy.
