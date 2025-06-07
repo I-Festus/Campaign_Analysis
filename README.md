@@ -213,3 +213,9 @@ The analysis provided key insights into campaign performance, audience engagemen
 7. Ensure Data Integrity and Accuracy
 - Investigate why multiple campaigns have identical impressions (e.g., 10,000 for all).
 - Check for potential data anomalies or system errors affecting reporting accuracy.
+
+# Thank you
+
+For more information, you can contact me
+
+![1744659](https://github.com/user-attachments/assets/17caa157-ecfd-4f5a-82c2-11ad5ee04f8d)
